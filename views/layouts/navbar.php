@@ -19,7 +19,7 @@
                     <a class="nav-link" href="../home/index.php">Home</a>
                 </li>
                 <li class="navbar-item ' . $contact . '">
-                    <a class="nav-link" href="../contact/contact.php">Contact</a>
+                    <a class="nav-link" href="../contact/getID.php">Contact</a>
                 </li>
     
             </ul>

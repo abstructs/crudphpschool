@@ -1,9 +1,11 @@
 <?php
     require '../layouts/navbar.php';
+    require '../../models/getID.php';
+    require '../../controllers/helpers.php';
 
     $alert = '';
     $alert_class = '';
-
+    define("DATA_LENGTH", 3);
 
     switch($_SERVER['REQUEST_METHOD']) {
         case 'POST':
@@ -108,14 +110,3 @@
     </footer>
 </body>
 </html>
-
-<?php
-/**
- * Created by PhpStorm.
- * User: abstruct
- * Date: 2017-10-15
- * Time: 4:19 PM
- */
-
-
-?>
