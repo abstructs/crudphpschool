@@ -1,5 +1,8 @@
 <?php
 
+
+// EFFECTS: gets data from the file, if file doesn't exist creates one
+// RETURNS: assoc array of the data read from the file
 function getData() {
     $file_name = 'database';
     $all_data = [];
@@ -46,8 +49,14 @@ function findBy($thingToFindBy) {
     };
 
 }
+
 function findById($id) { return findBy('id')($id); }
 function findByFirstName($first_name) { return findBy('first_name')($first_name); }
 function findByLastName($last_name) { return findBy('last_name')($last_name); }
+
+// DONE: Read
+// TODO: Create
+// TODO: Update
+// TODO: Delete
 
 ?>
