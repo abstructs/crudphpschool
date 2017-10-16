@@ -5,8 +5,8 @@
 
     $alert = '';
     $alert_class = '';
-    define("DATA_LENGTH", 3);
 
+    getID();
     switch($_SERVER['REQUEST_METHOD']) {
         case 'POST':
             $first_name = &$_POST['firstName'];

@@ -1,5 +1,9 @@
 <?php
 require '../layouts/navbar.php';
+require '../layouts/card.php';
+require '../../controllers/helpers.php';
+
+$data = getData();
 ?>
 
 <html>
@@ -20,6 +24,19 @@ require '../layouts/navbar.php';
             <h1 class="display-3">Welcome</h1>
             <hr>
             <p>Enter information and stuffs.</p>
+        </div>
+    </section>
+    <section id="show-contacts">
+        <div class="container">
+            <div class="card-columns" style="display: inline-block;">
+                <?php
+                    foreach($data as $row) {
+                        if(isset($row['title']) && isset($row['first_name']) && isset($row['last_name'])) {
+                            echo card($row['title'], $row['first_name'], $row['last_name']);
+                        }
+                    }
+                ?>
+            </div>
         </div>
     </section>
     </body>
