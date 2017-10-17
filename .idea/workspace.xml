@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71f73d06-a38a-4ed5-9e94-e651e5036157" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/views/contact/database" afterPath="$PROJECT_DIR$/db/database" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/helpers.php" afterPath="$PROJECT_DIR$/controllers/helpers.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/contact/contact.php" afterPath="$PROJECT_DIR$/views/contact/contact.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/contact/ids" afterPath="$PROJECT_DIR$/views/contact/ids" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/home/index.php" afterPath="$PROJECT_DIR$/views/home/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/layouts/navbar.php" afterPath="$PROJECT_DIR$/views/layouts/navbar.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/database" afterPath="$PROJECT_DIR$/controllers/database" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/helpers.php" afterPath="$PROJECT_DIR$/controllers/helpers.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/home/database" afterPath="$PROJECT_DIR$/views/home/database" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,21 +17,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="getID.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/getID.php">
+      <file leaf-file-name="helpers.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/controllers/helpers.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+            <state relative-caret-position="171">
+              <caret line="72" column="30" lean-forward="false" selection-start-line="72" selection-start-column="30" selection-end-line="72" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="helpers.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/controllers/helpers.php">
+      <file leaf-file-name="database" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/contact/database">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1425">
-              <caret line="95" column="15" lean-forward="true" selection-start-line="95" selection-start-column="15" selection-end-line="95" selection-end-column="15" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -42,8 +40,28 @@
       <file leaf-file-name="database" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/database">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="database" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/home/database">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="getID.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/getID.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="30" lean-forward="true" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -63,7 +81,7 @@
         <entry file="file://$PROJECT_DIR$/views/contact/ids">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="1" lean-forward="true" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -83,6 +101,8 @@
     <findStrings>
       <find>echo</find>
       <find>file</find>
+      <find>throw</find>
+      <find>fread</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -100,16 +120,17 @@
         <option value="$PROJECT_DIR$/assets/javascripts/contact.js" />
         <option value="$PROJECT_DIR$/views/contact/contact.js" />
         <option value="$PROJECT_DIR$/models/contact.php" />
-        <option value="$PROJECT_DIR$/views/contact/database" />
-        <option value="$PROJECT_DIR$/controllers/helpers.php" />
-        <option value="$PROJECT_DIR$/controllers/database" />
-        <option value="$PROJECT_DIR$/views/home/database" />
         <option value="$PROJECT_DIR$/views/layouts/card.php" />
         <option value="$PROJECT_DIR$/views/layouts/navbar.php" />
         <option value="$PROJECT_DIR$/views/home/index.php" />
         <option value="$PROJECT_DIR$/models/contact_schema.php" />
         <option value="$PROJECT_DIR$/views/contact/contact.php" />
+        <option value="$PROJECT_DIR$/models/getID.php" />
+        <option value="$PROJECT_DIR$/views/contact/database" />
+        <option value="$PROJECT_DIR$/controllers/database" />
+        <option value="$PROJECT_DIR$/views/home/database" />
         <option value="$PROJECT_DIR$/views/contact/ids" />
+        <option value="$PROJECT_DIR$/controllers/helpers.php" />
       </list>
     </option>
   </component>
@@ -258,12 +279,12 @@
       <workItem from="1508098776242" duration="4799000" />
       <workItem from="1508124242206" duration="33000" />
       <workItem from="1508124276033" duration="6748000" />
-      <workItem from="1508187400940" duration="9132000" />
+      <workItem from="1508187400940" duration="11430000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20712000" />
+    <option name="totallyTimeSpent" value="23010000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="48" y="23" width="1314" height="770" extended-state="0" />
@@ -451,14 +472,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/home/database">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/contact_schema.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -475,18 +488,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_5.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2847">
+          <caret line="533" column="48" lean-forward="false" selection-start-line="533" selection-start-column="43" selection-end-line="533" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/views/contact/ids">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="1" lean-forward="true" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/home/database">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/models/getID.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        <state relative-caret-position="75">
+          <caret line="5" column="30" lean-forward="true" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
           <folding />
         </state>
       </provider>
@@ -499,18 +528,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/contact/database">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/database">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/helpers.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1425">
-          <caret line="95" column="15" lean-forward="true" selection-start-line="95" selection-start-column="15" selection-end-line="95" selection-end-column="15" />
+        <state relative-caret-position="171">
+          <caret line="72" column="30" lean-forward="false" selection-start-line="72" selection-start-column="30" selection-end-line="72" selection-end-column="30" />
           <folding />
         </state>
       </provider>

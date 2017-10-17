@@ -15,8 +15,10 @@ function getData() {
     $assoc_data = [];
     if(!file_exists($file_name)) {
         touch($file_name);
-    } else {
+    }
+    else {
         $handle = fopen($file_name, 'a+');
+        if(filesize($file_name) <= 0) { return []; }
         $all_data = explode("\n", fread($handle, filesize($file_name)));
     }
 
@@ -68,16 +70,20 @@ function findByFirstName($first_name) { return findBy('first_name')($first_name)
 function findByLastName($last_name) { return findBy('last_name')($last_name); }
 
 // EFFECTS: Creates a new contact and writes it to the file
-// TODO: Insert with proper ID
 function createContact($params) {
-    $file_name = FILE_NAME;
+    $file_name = 'database';
+    $insert_string = '';
     if(!file_exists($file_name)) {
         touch($file_name);
+        $id = 0;
+        $handle = fopen($file_name, 'r+');
     }
-
-    $handle = fopen($file_name, 'a');
-
-    $insert_string = '';
+    else {
+        $handle = fopen($file_name, 'r+');
+        $id = (filesize($file_name) > 0) ? @fread($handle, filesize($file_name)) : 0;
+        settype($id, "integer");
+        $insert_string = ++$id;
+    }
 
     foreach(CONTACT_SCHEMA as $key => $value) {
         if(!isset($params[$key])) {
@@ -87,13 +93,19 @@ function createContact($params) {
         $insert_string = $insert_string . $params[$key] . ",";
     }
 
-    fwrite($handle, trim($insert_string, ",") . "\n");
+    $insert_string = trim($insert_string, ",") . "\n";
+
+    $file = file_get_contents($file_name);
+    file_put_contents($file_name, $insert_string . $file);
+
+//    fwrite($handle, $insert_string);
+    fclose($handle);
 }
 
 //echo createContact(array("title" => "Mr", "first_name" => "andrew", "last_name" => "wilson"));
 
 // DONE: Read
-// TODO: Create
+// DONE: Create
 // TODO: Update
 // TODO: Delete
 
