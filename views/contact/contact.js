@@ -8,13 +8,13 @@ window.onload = (function() {
 //          number of errors.
 function validateInput() {
     var title = document.getElementById('title');
-    var firstName = document.getElementById('firstName');
-    var lastName = document.getElementById('lastName');
+    var first_name = document.getElementById('first_name');
+    var last_name = document.getElementById('last_name');
     var error_count = 0;
 
     error_count += validateFormGroup(title, title.value.length > 0, "Title cannot be blank.");
-    error_count += validateFormGroup(firstName, firstName.value.length > 0, "First name cannot be blank.");
-    error_count += validateFormGroup(lastName, lastName.value.length > 0, "Last name cannot be blank.");
+    error_count += validateFormGroup(first_name, first_name.value.length > 0, "First name cannot be blank.");
+    error_count += validateFormGroup(last_name, last_name.value.length > 0, "Last name cannot be blank.");
 
     if(error_count == 0) {
         return true;
@@ -27,8 +27,6 @@ function validateInput() {
     }
 
     window.scrollTo(0, 0);
-
-    // showAlert('success', "Submitted!");
 
     return false;
 }
@@ -45,7 +43,6 @@ function validateFormGroup(inputElement, condition, error_msg) {
         inputElement.parentNode.style['color'] = 'red';
         error_element.innerHTML = error_msg;
         error_element.style['color'] = 'red';
-
 
         return 1;
     }

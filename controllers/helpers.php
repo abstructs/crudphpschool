@@ -3,8 +3,7 @@
 require '../../models/contact_schema.php';
 // CONSTANTS:
 define("DATA_LENGTH", 3);
-define("FILE_NAME", 'database');
-
+define("FILE_NAME", $_SERVER['DOCUMENT_ROOT'] . '/db/database');
 
 // EFFECTS: gets data from the file, if file doesn't exist creates one
 // RETURNS: assoc array of the data read from the file
@@ -71,7 +70,11 @@ function findByLastName($last_name) { return findBy('last_name')($last_name); }
 
 // EFFECTS: Creates a new contact and writes it to the file
 function createContact($params) {
-    $file_name = 'database';
+    if(!isset($params['first_name']) || !isset($params['last_name']) || !isset($params['title'])) {
+        return false;
+    }
+
+    $file_name = FILE_NAME;
     $insert_string = '';
     if(!file_exists($file_name)) {
         touch($file_name);
@@ -100,6 +103,31 @@ function createContact($params) {
 
 //    fwrite($handle, $insert_string);
     fclose($handle);
+}
+
+// EFFECTS: removes a contact from the database
+function deleteContact($id) {
+    $file_name = FILE_NAME;
+    $insert_string = '';
+    if(!file_exists($file_name) || filesize($file_name) <= 0) {
+        return false;
+    }
+
+    $handle = fopen($file_name, 'r+');
+    $file = fread($handle, filesize($file_name));
+//    echo var_dump($file);
+
+    $new_file = '';
+    foreach(explode("\n",$file) as $row) {
+        $row_data = explode(",", $row);
+        if(!isset($row[0]) || ($row_data[0] === (string)$id)) continue;
+        $new_file = $new_file . $row . "\n";
+    }
+
+    file_put_contents($file_name, $new_file);
+//    echo $new_file;
+    fclose($handle);
+    return true;
 }
 
 //echo createContact(array("title" => "Mr", "first_name" => "andrew", "last_name" => "wilson"));

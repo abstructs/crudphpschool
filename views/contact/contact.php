@@ -6,14 +6,13 @@
     $alert = '';
     $alert_class = '';
 
-    getID();
     switch($_SERVER['REQUEST_METHOD']) {
         case 'POST':
-            $first_name = &$_POST['firstName'];
-            $last_name = &$_POST['lastName'];
-            $title = &$_POST['title'];
-
+            $first_name = @$_POST['first_name'];
+            $last_name = @$_POST['last_name'];
+            $title = @$_POST['title'];
             if(isset($first_name) && isset($last_name) && isset($title)) {
+                createContact($_POST);
                 $alert = "Success!";
                 $alert_class = 'alert alert-success';
             } else {
@@ -21,6 +20,7 @@
                 $alert_class = 'alert alert-danger';
                 die("Given invalid data.");
             }
+            break;
     }
 
 ?>
@@ -50,21 +50,21 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-8">
-                    <form action="./contact.php" method="POST" onsubmit="return validateInput();">
+                    <form method="POST" onsubmit="return validateInput()">
                         <div class="form-group">
                             <label for="title">Title*</label>
                             <small id="title_error" class="form-text"></small>
                             <input id="title" name="title" type="text" class="form-control" placeholder="Title"/>
                         </div>
                         <div class="form-group">
-                            <label for="firstName">First Name*</label>
-                            <small id="firstName_error" class="form-text"></small>
-                            <input id="firstName" name="firstName" type="text" class="form-control" placeholder="First Name"/>
+                            <label for="first_name">First Name*</label>
+                            <small id="first_name_error" class="form-text"></small>
+                            <input id="first_name" name="first_name" type="text" class="form-control" placeholder="First Name"/>
                         </div>
                         <div class="form-group">
-                            <label for="lastName">Last Name*</label>
-                            <small id="lastName_error" class="form-text"></small>
-                            <input id="lastName" name="lastName" type="text" class="form-control" placeholder="Last Name"/>
+                            <label for="last_name">Last Name*</label>
+                            <small id="last_name_error" class="form-text"></small>
+                            <input id="last_name" name="last_name" type="text" class="form-control" placeholder="Last Name"/>
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
@@ -92,13 +92,12 @@
                         </div>
                         <div class="form-group">
                             <label for="picture">Picture</label>
-                            <input id="picture" name="picture" type="text" class="form-control" placeholder="Picture"/>
+                            <input id="picture" name="picture" type="file" class="form-control" placeholder="Picture"/>
                         </div>
                         <div class="form-group">
                             <label for="comment">Comment</label>
                             <input id="comment" name="comment" type="text" class="form-control" placeholder="Comment"/>
                         </div>
-
 
                         <input id="contact-form-submit" class="btn btn-primary" type="submit">
                     </form>

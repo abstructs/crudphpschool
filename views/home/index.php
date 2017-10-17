@@ -4,6 +4,18 @@ require '../layouts/card.php';
 require '../../controllers/helpers.php';
 
 $data = getData();
+
+switch($_SERVER['REQUEST_METHOD']) {
+    case 'POST':
+        $id_to_delete = @$_POST['id_to_delete'];
+        if(isset($id_to_delete)) {
+            deleteContact($id_to_delete);
+            header("Refresh:0");
+        }
+
+        break;
+}
+
 ?>
 
 <html>
@@ -14,6 +26,7 @@ $data = getData();
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="../../vendor/stylesheets/bootstrap.min.css">
         <link rel="stylesheet" href="../../assets/stylesheets/index.css">
+        <script src="home.js"></script>
         <title>Home</title>
     </head>
     <body>
@@ -28,11 +41,12 @@ $data = getData();
     </section>
     <section id="show-contacts">
         <div class="container">
+            <?php if(count($data) == 0) echo nothingToShow() ?>
             <div class="card-columns" style="display: inline-block;">
                 <?php
                     foreach($data as $row) {
-                        if(isset($row['title']) && isset($row['first_name']) && isset($row['last_name'])) {
-                            echo card($row['title'], $row['first_name'], $row['last_name']);
+                        if(isset($row['id']) && isset($row['title']) && isset($row['first_name']) && isset($row['last_name'])) {
+                            echo card($row['id'], $row['title'], $row['first_name'], $row['last_name']);
                         }
                     }
                 ?>
@@ -41,17 +55,3 @@ $data = getData();
     </section>
     </body>
 </html>
-
-<?php
-/**
- * Created by PhpStorm.
- * User: abstruct
- * Date: 2017-10-15
- * Time: 4:19 PM
- */
-
-$first_name = &$_GET['first_name'];
-if(isset($first_name)) {
-    echo $first_name;
-}
-?>

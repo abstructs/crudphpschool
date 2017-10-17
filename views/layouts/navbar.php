@@ -21,7 +21,6 @@
                 <li class="navbar-item ' . $contact . '">
                     <a class="nav-link" href="../contact/contact.php">Contact</a>
                 </li>
-    
             </ul>
         </nav>
         ';
