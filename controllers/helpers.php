@@ -7,7 +7,6 @@ define("FILE_NAME", $_SERVER['DOCUMENT_ROOT'] . '/db/database');
 
 // EFFECTS: gets data from the file, if file doesn't exist creates one
 // RETURNS: assoc array of the data read from the file
-// TODO: for-loop through schema settings values to null if not present
 function getData() {
     $file_name = FILE_NAME;
     $all_data = [];
@@ -101,21 +100,18 @@ function createContact($params) {
     $file = file_get_contents($file_name);
     file_put_contents($file_name, $insert_string . $file);
 
-//    fwrite($handle, $insert_string);
     fclose($handle);
 }
 
 // EFFECTS: removes a contact from the database
 function deleteContact($id) {
     $file_name = FILE_NAME;
-    $insert_string = '';
     if(!file_exists($file_name) || filesize($file_name) <= 0) {
         return false;
     }
 
     $handle = fopen($file_name, 'r+');
     $file = fread($handle, filesize($file_name));
-//    echo var_dump($file);
 
     $new_file = '';
     foreach(explode("\n",$file) as $row) {
@@ -125,16 +121,13 @@ function deleteContact($id) {
     }
 
     file_put_contents($file_name, $new_file);
-//    echo $new_file;
     fclose($handle);
     return true;
 }
 
-//echo createContact(array("title" => "Mr", "first_name" => "andrew", "last_name" => "wilson"));
-
 // DONE: Read
 // DONE: Create
 // TODO: Update
-// TODO: Delete
+// DONE: Delete
 
 ?>
