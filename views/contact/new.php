@@ -20,7 +20,7 @@
 </head>
 <body>
     <?php echo navbar('contact'); ?>
-    <?php echo alert(); ?>
+    <?php echo alert(true); ?>
 
     <section id="header">
         <div class="jumbotron bg-dark text-white">
@@ -31,46 +31,52 @@
     <section id="contact-form">
         <div class="container">
             <div class="row">
-                <div class="col-sm-8">
+                <div class="col-sm-8 mx-auto">
                     <form method="POST" onsubmit="return validateInput()">
-                        <div class="form-group">
-                            <label for="title">Title*</label>
-                            <small id="title_error" class="form-text"></small>
-                            <input id="title" name="title" type="text" class="form-control" placeholder="Title"/>
-                        </div>
-                        <div class="form-group">
-                            <label for="first_name">First Name*</label>
-                            <small id="first_name_error" class="form-text"></small>
-                            <input id="first_name" name="first_name" type="text" class="form-control" placeholder="First Name"/>
-                        </div>
-                        <div class="form-group">
-                            <label for="last_name">Last Name*</label>
-                            <small id="last_name_error" class="form-text"></small>
-                            <input id="last_name" name="last_name" type="text" class="form-control" placeholder="Last Name"/>
+                        <div class="form-row">
+                            <div class="col">
+                                <label for="title">Title*</label>
+                                <input id="title" name="title" type="text" class="form-control" placeholder="Title"/>
+                                <small id="title_error" class="form-text"></small>
+                            </div>
+                            <div class="col">
+                                <label for="first_name">First Name*</label>
+                                <input id="first_name" name="first_name" type="text" class="form-control" placeholder="First Name"/>
+                                <small id="first_name_error" class="form-text"></small>
+                            </div>
+                            <div class="col">
+                                <label for="last_name">Last Name*</label>
+                                <input id="last_name" name="last_name" type="text" class="form-control" placeholder="Last Name"/>
+                                <small id="last_name_error" class="form-text"></small>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
                             <input id="email" name="email" type="email" class="form-control" placeholder="Email"/>
                         </div>
-                        <div class="form-group">
-                            <label for="site">Website</label>
-                            <input id="site" name="site" type="text" class="form-control" placeholder="Website"/>
+                        <div class="form-row">
+                            <div class="col">
+                                <label for="home_number">Home Number</label>
+                                <input id="home_number" name="home_number" type="text" class="form-control" placeholder="Home Number"/>
+                            </div>
+                            <div class="col">
+                                <label for="office_number">Office Number</label>
+                                <input id="office_number" name="office_number" type="text" class="form-control" placeholder="Office Number"/>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="home_number">Home Number</label>
-                            <input id="home_number" name="home_number" type="text" class="form-control" placeholder="Home Number"/>
-                        </div>
-                        <div class="form-group">
-                            <label for="office_number">Office Number</label>
-                            <input id="office_number" name="office_number" type="text" class="form-control" placeholder="Office Number"/>
-                        </div>
-                        <div class="form-group">
-                            <label for="twitter_url">Twitter URL</label>
-                            <input id="twitter_url" name="twitter_url" type="text" class="form-control" placeholder="Twitter URL"/>
-                        </div>
-                        <div class="form-group">
-                            <label for="facebook_url">Facebook URL</label>
-                            <input id="facebook_url" name="facebook_url" type="text" class="form-control" placeholder="Facebook URL"/>
+                        <div class="form-row">
+                            <div class="col">
+                                <label for="site">Website</label>
+                                <input id="site" name="site" type="text" class="form-control" placeholder="Website"/>
+                            </div>
+                            <div class="col">
+                                <label for="twitter_url">Twitter URL</label>
+                                <input id="twitter_url" name="twitter_url" type="text" class="form-control" placeholder="Twitter URL"/>
+                            </div>
+                            <div class="col">
+                                <label for="facebook_url">Facebook URL</label>
+                                <input id="facebook_url" name="facebook_url" type="text" class="form-control" placeholder="Facebook URL"/>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="picture">Picture</label>
@@ -81,13 +87,14 @@
                             <input id="comment" name="comment" type="text" class="form-control" placeholder="Comment"/>
                         </div>
 
-                        <input id="contact-form-submit" class="btn btn-primary" type="submit">
+                        <input id="contact-form-submit" class="btn btn-dark" type="submit">
                     </form>
                 </div>
             </div>
         </div>
     </section>
     <footer>
+        <div id="footer" class="bg-dark"></div>
     </footer>
 </body>
 </html>

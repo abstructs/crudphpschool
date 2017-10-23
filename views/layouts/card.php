@@ -2,28 +2,29 @@
 // EFFECTS: generates some HTML code for the cards
 function card($id, $title, $first_name, $last_name) {
   $card = '
-        <div id="card_for_' . $id .'" class="card p-3 contact_card">
+        <div id="card_for_' . $id .'" class="card bg-dark text-white p-3 contact_card">
             <div class="card-body">
                 <h4 class="card-title">' . $title . ' ' . $first_name . ' ' . $last_name . '</h4>
                 <h6 class="card-subtitle mb-2 text-muted"></h6>
-                <p class="card-text">Lots of text</p>
+                <br>
+                <p class="card-text"></p>
                 <div class="row">
                     <div class="ml-md-3">
                         <form action="./show.php" method="GET">
                             <input name="id" type="hidden" class="form-control" value="' . $id .'"/>
-                            <input type="submit" class="btn btn-info" value="Show">
+                            <input type="submit" class="btn btn-secondary" value="Show">
                         </form>
                     </div>
                     <div class="ml-md-3">
                         <form action="./edit.php" method="GET">
                             <input name="id" type="hidden" class="form-control" value="' . $id .'"/>
-                            <input type="submit" class="btn btn-primary" value="Update">
+                            <input type="submit" class="btn btn-light" value="Update">
                         </form>
                     </div>
                     <div class="ml-md-3">
                         <form action="./delete.php" method="POST" onsubmit="return confirm(\'Are you sure?\')">
                             <input name="id" type="hidden" class="form-control" value="' . $id .'"/>
-                            <input type="submit" class="btn btn-danger" value="Delete">
+                            <input type="submit" class="btn btn-warning" value="Delete">
                         </form>
                     </div>
                 </div>

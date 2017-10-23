@@ -26,7 +26,7 @@ if(!$user_data) {
 </head>
 <body>
 <?php echo navbar('contact'); ?>
-<?php echo alert(); ?>
+<?php echo alert(true); ?>
 
 <section id="header">
     <div class="jumbotron">

@@ -184,6 +184,7 @@ function flash($flash, $flash_type="primary") {
     session_start();
     $_SESSION['flash'] = $flash;
     $_SESSION['flash-type'] = $flash_type;
+    echo var_dump($_SESSION);
 }
 
 // DONE: Read

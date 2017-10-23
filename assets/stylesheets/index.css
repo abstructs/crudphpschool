@@ -1,16 +1,20 @@
-#contact-form {
-    /*width: 33%;*/
-    /*margin-left: 20%;*/
-}
-
 .jumbotron {
     border-radius: 0px;
 }
 
 #footer {
-    position: absolute;
-    right: 0;
+    position: relative;
     bottom: 0;
     left: 0;
     padding: 1rem;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.alert {
+    margin-bottom: 0px;
+    border-radius: 0px;
+}
+body {
+    min-height: 500px;
 }
