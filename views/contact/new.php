@@ -1,8 +1,7 @@
 <?php
     require '../layouts/navbar.php';
-    require '../../models/getID.php';
-    require '../../controllers/contact_controller.php';
     require '../layouts/alert.php';
+    require '../../controllers/contact_controller.php';
 
     handleNewRequests();
 
@@ -24,10 +23,9 @@
     <?php echo alert(); ?>
 
     <section id="header">
-        <div class="jumbotron">
-            <h1 class="display-3">Contact Form</h1>
+        <div class="jumbotron bg-dark text-white">
+            <h1 class="display-4">New Contact</h1>
             <hr>
-            <p>Enter information and stuffs.</p>
         </div>
     </section>
     <section id="contact-form">

@@ -5,6 +5,7 @@ require '../layouts/alert.php';
 require '../../controllers/contact_controller.php';
 
 $data = handleIndexRequest();
+
 ?>
 
 <html>
@@ -23,10 +24,9 @@ $data = handleIndexRequest();
     <?php echo alert(); ?>
 
     <section id="header">
-        <div class="jumbotron">
-            <h1 class="display-3">Welcome</h1>
+        <div class="jumbotron bg-dark text-white">
+            <h1 class="display-4">Contacts</h1>
             <hr>
-            <p>Enter information and stuffs.</p>
         </div>
     </section>
     <section id="show-contacts">
@@ -43,5 +43,8 @@ $data = handleIndexRequest();
             </div>
         </div>
     </section>
+    <footer>
+        <div id="footer" class="bg-dark"></div>
+    </footer>
     </body>
 </html>

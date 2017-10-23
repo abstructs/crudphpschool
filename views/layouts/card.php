@@ -39,7 +39,7 @@ function nothingToShow() {
       <div class="card-body">
         <h4 class="card-title">Nothing to show here!</h4>
         <p class="card-text">Looks like the data is empty, click below to add some.</p>
-        <a href="../contact/new.php" class="btn btn-primary">Create a new Contact</a>
+        <a href="../contact/new.php" class="btn btn-dark">Create a new Contact</a>
       </div>
       <div class="card-footer text-muted"></div>
     </div>

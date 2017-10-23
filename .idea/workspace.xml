@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71f73d06-a38a-4ed5-9e94-e651e5036157" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/contact/edit.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/controllers/database" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/views/contact/contact.js" afterPath="$PROJECT_DIR$/views/contact/new.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/views/contact/contact.php" afterPath="$PROJECT_DIR$/views/contact/new.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/views/home/home.js" afterPath="$PROJECT_DIR$/views/contact/index.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/views/home/index.php" afterPath="$PROJECT_DIR$/views/contact/index.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/contact/index.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/helpers.php" afterPath="$PROJECT_DIR$/controllers/helpers.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/stylesheets/index.css" afterPath="$PROJECT_DIR$/assets/stylesheets/index.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/contact_controller.php" afterPath="$PROJECT_DIR$/controllers/contact_controller.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/contact/index.php" afterPath="$PROJECT_DIR$/views/contact/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/contact/new.php" afterPath="$PROJECT_DIR$/views/contact/new.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/layouts/card.php" afterPath="$PROJECT_DIR$/views/layouts/card.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/layouts/navbar.php" afterPath="$PROJECT_DIR$/views/layouts/navbar.php" />
     </list>
@@ -21,7 +19,28 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="new.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/contact/new.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="114">
+              <caret line="25" column="8" lean-forward="false" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/contact/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="246">
+              <caret line="26" column="8" lean-forward="false" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -72,18 +91,19 @@
         <option value="$PROJECT_DIR$/views/contact/contact.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/views/home/index.php" />
-        <option value="$PROJECT_DIR$/views/layouts/navbar.php" />
-        <option value="$PROJECT_DIR$/views/layouts/card.php" />
         <option value="$PROJECT_DIR$/db/database" />
         <option value="$PROJECT_DIR$/views/contact/delete.php" />
         <option value="$PROJECT_DIR$/controllers/helpers.php" />
-        <option value="$PROJECT_DIR$/views/contact/index.php" />
         <option value="$PROJECT_DIR$/views/contact/show.php" />
-        <option value="$PROJECT_DIR$/controllers/contact_controller.php" />
         <option value="$PROJECT_DIR$/views/contact/edit.php" />
-        <option value="$PROJECT_DIR$/views/contact/new.php" />
         <option value="$PROJECT_DIR$/views/contact/new.js" />
         <option value="$PROJECT_DIR$/views/layouts/alert.php" />
+        <option value="$PROJECT_DIR$/controllers/contact_controller.php" />
+        <option value="$PROJECT_DIR$/views/layouts/navbar.php" />
+        <option value="$PROJECT_DIR$/views/layouts/card.php" />
+        <option value="$PROJECT_DIR$/views/contact/index.php" />
+        <option value="$PROJECT_DIR$/assets/stylesheets/index.css" />
+        <option value="$PROJECT_DIR$/views/contact/new.php" />
       </list>
     </option>
   </component>
@@ -126,6 +146,17 @@
             <path>
               <item name="phpassignment1" type="b2602c69:ProjectViewProjectNode" />
               <item name="phpassignment1" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="phpassignment1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="phpassignment1" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="phpassignment1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="phpassignment1" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="stylesheets" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="phpassignment1" type="b2602c69:ProjectViewProjectNode" />
@@ -226,15 +257,16 @@
       <workItem from="1508548852070" duration="759000" />
       <workItem from="1508563425327" duration="819000" />
       <workItem from="1508607572299" duration="1207000" />
-      <workItem from="1508704365715" duration="9465000" />
+      <workItem from="1508704365715" duration="10824000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44786000" />
+    <option name="totallyTimeSpent" value="46145000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="44" y="23" width="1314" height="770" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -296,10 +328,10 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1508722480000" expanded="true" signature="434:778" ph="..." />
-            <marker date="1508722480000" expanded="true" signature="466:767" ph="..." />
-            <marker date="1508722480000" expanded="true" signature="516:607" ph="..." />
-            <marker date="1508722480000" expanded="true" signature="661:753" ph="..." />
+            <marker date="1508730924000" expanded="true" signature="431:779" ph="..." />
+            <marker date="1508730924000" expanded="true" signature="463:768" ph="..." />
+            <marker date="1508730924000" expanded="true" signature="513:604" ph="..." />
+            <marker date="1508730924000" expanded="true" signature="658:754" ph="..." />
           </folding>
         </state>
       </provider>
@@ -324,9 +356,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="16" column="14" lean-forward="false" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -335,10 +365,10 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1508722480000" expanded="true" signature="434:778" ph="..." />
-            <marker date="1508722480000" expanded="true" signature="466:767" ph="..." />
-            <marker date="1508722480000" expanded="true" signature="516:607" ph="..." />
-            <marker date="1508722480000" expanded="true" signature="661:753" ph="..." />
+            <marker date="1508730924000" expanded="true" signature="431:779" ph="..." />
+            <marker date="1508730924000" expanded="true" signature="463:768" ph="..." />
+            <marker date="1508730924000" expanded="true" signature="513:604" ph="..." />
+            <marker date="1508730924000" expanded="true" signature="658:754" ph="..." />
           </folding>
         </state>
       </provider>
@@ -355,9 +385,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="16" column="14" lean-forward="false" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -440,13 +468,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/stylesheets/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_5.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2847">
@@ -480,31 +501,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/layouts/navbar.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="23" lean-forward="true" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
-          <folding>
-            <marker date="1508722480000" expanded="true" signature="434:778" ph="..." />
-            <marker date="1508722480000" expanded="true" signature="466:767" ph="..." />
-            <marker date="1508722480000" expanded="true" signature="516:607" ph="..." />
-            <marker date="1508722480000" expanded="true" signature="661:753" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/layouts/card.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="26" lean-forward="true" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
-          <folding>
-            <marker date="1508724735000" expanded="true" signature="1223:1583" ph="..." />
-            <marker date="1508724735000" expanded="true" signature="1745:2118" ph="..." />
-            <marker date="1508724735000" expanded="true" signature="1813:2058" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/database">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -517,24 +513,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="16" column="73" lean-forward="false" selection-start-line="16" selection-start-column="73" selection-end-line="16" selection-end-column="73" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/contact/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="49" lean-forward="false" selection-start-line="4" selection-start-column="49" selection-end-line="4" selection-end-column="49" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/contact/new.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="3" column="44" lean-forward="false" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
           <folding />
         </state>
       </provider>
@@ -553,14 +531,6 @@
             <marker date="1508729364000" expanded="true" signature="883:1017" ph="..." />
             <marker date="1508729364000" expanded="true" signature="1027:1037" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/contact/new.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="56" column="37" lean-forward="false" selection-start-line="56" selection-start-column="37" selection-end-line="56" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -584,14 +554,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/contact/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/helpers.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -600,18 +562,83 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/contact_controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-828">
-          <caret line="11" column="32" lean-forward="true" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/contact/delete.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="49" lean-forward="true" selection-start-line="1" selection-start-column="49" selection-end-line="1" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/contact/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="34" lean-forward="false" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/contact/new.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="103">
+          <caret line="30" column="17" lean-forward="true" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/stylesheets/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="13" lean-forward="true" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/layouts/card.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="38" lean-forward="false" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
+          <folding>
+            <marker date="1508731029000" expanded="true" signature="1223:1583" ph="..." />
+            <marker date="1508731029000" expanded="true" signature="1745:2115" ph="..." />
+            <marker date="1508731029000" expanded="true" signature="1813:2055" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/layouts/navbar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="59" lean-forward="false" selection-start-line="16" selection-start-column="59" selection-end-line="16" selection-end-column="59" />
+          <folding>
+            <marker date="1508730924000" expanded="true" signature="431:779" ph="..." />
+            <marker date="1508730924000" expanded="true" signature="463:768" ph="..." />
+            <marker date="1508730924000" expanded="true" signature="513:604" ph="..." />
+            <marker date="1508730924000" expanded="true" signature="658:754" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/contact_controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-37">
+          <caret line="3" column="10" lean-forward="false" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/contact/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="26" column="8" lean-forward="false" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/contact/new.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="25" column="8" lean-forward="false" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="50" />
           <folding />
         </state>
       </provider>
