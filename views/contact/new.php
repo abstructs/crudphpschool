@@ -1,27 +1,10 @@
 <?php
     require '../layouts/navbar.php';
     require '../../models/getID.php';
-    require '../../controllers/helpers.php';
+    require '../../controllers/contact_controller.php';
+    require '../layouts/alert.php';
 
-    $alert = '';
-    $alert_class = '';
-
-    switch($_SERVER['REQUEST_METHOD']) {
-        case 'POST':
-            $first_name = @$_POST['first_name'];
-            $last_name = @$_POST['last_name'];
-            $title = @$_POST['title'];
-            if(isset($first_name) && isset($last_name) && isset($title)) {
-                createContact($_POST);
-                $alert = "Success!";
-                $alert_class = 'alert alert-success';
-            } else {
-                $alert = "Invalid data";
-                $alert_class = 'alert alert-danger';
-                die("Given invalid data.");
-            }
-            break;
-    }
+    handleNewRequests();
 
 ?>
 
@@ -33,12 +16,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../../vendor/stylesheets/bootstrap.min.css">
     <link rel="stylesheet" href="../../assets/stylesheets/index.css">
-    <script src="./contact.js"></script>
+    <script src="new.js"></script>
     <title>Contact</title>
 </head>
 <body>
     <?php echo navbar('contact'); ?>
-    <div id="alert" class="<?php echo $alert_class?>"><?php echo $alert ?></div>
+    <?php echo alert(); ?>
+
     <section id="header">
         <div class="jumbotron">
             <h1 class="display-3">Contact Form</h1>

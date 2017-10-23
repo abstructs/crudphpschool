@@ -1,6 +1,6 @@
 <?php
 
-require '../../models/contact_schema.php';
+require __DIR__ . '../../models/contact_schema.php';
 // CONSTANTS:
 define("DATA_LENGTH", 3);
 define("FILE_NAME", $_SERVER['DOCUMENT_ROOT'] . '/db/database');
@@ -47,7 +47,7 @@ function getData() {
 // EFFECTS: Search the data file for an entry with the given ID
 // RETURNS: a function that takes a thingToFind and searches for it
 //          in the data when called.
-
+// REQUIRES: thing must exist in database otherwise returns false
 function findBy($column_name) {
     return function($thingToFind) use($column_name) {
         $data = getData();
@@ -63,11 +63,16 @@ function findBy($column_name) {
 
 }
 
+// RETURNS: boolean or data
+// (implementations of "findBy" higher order function)
 function findById($id) { return findBy('id')($id); }
 function findByFirstName($first_name) { return findBy('first_name')($first_name); }
 function findByLastName($last_name) { return findBy('last_name')($last_name); }
 
 // EFFECTS: Creates a new contact and writes it to the file
+// MODIFIES: textfile
+// REQUIRES: textfile must exist
+// RETURNS: boolean
 function createContact($params) {
     if(!isset($params['first_name']) || !isset($params['last_name']) || !isset($params['title'])) {
         return false;
@@ -101,9 +106,13 @@ function createContact($params) {
     file_put_contents($file_name, $insert_string . $file);
 
     fclose($handle);
+    return true;
 }
 
 // EFFECTS: removes a contact from the database
+// MODIFIES: textfile
+// REQUIRES: textfile must exist
+// RETURNS: boolean
 function deleteContact($id) {
     $file_name = FILE_NAME;
     if(!file_exists($file_name) || filesize($file_name) <= 0) {
@@ -125,9 +134,61 @@ function deleteContact($id) {
     return true;
 }
 
+// EFFECTS: Changes the row in the database corresponding with the $id updating any parameters passed into "params" with
+//          their new value
+// MODIFIES: textfile
+// REQUIRES: textfile must exist
+// RETURNS: boolean
+function updateContact($id, $params) {
+    $file_name = FILE_NAME;
+    $id = (string)$id;
+    $params['id'] = $id;
+
+    if(!file_exists($file_name) || filesize($file_name) <= 0) {
+        return false;
+    }
+
+    $handle = fopen($file_name, 'r+');
+    $file = fread($handle, filesize($file_name));
+
+    $new_file = '';
+
+    // seperate file into rows
+    foreach(explode("\n",$file) as $row) {
+        // seperate rows by commas
+        $row_data = explode(",", $row);
+        // find the row with corresponding id
+        if($row_data[0] === $id) {
+            // overwrite the row with the new data from params
+            $row = '';
+            // iterate through schema settings schema keys to corresponding values
+            foreach(CONTACT_SCHEMA as $key => $value) {
+                if(!isset($params[$key])) {
+                    $params[$key] = null;
+                }
+
+                $row = $row . $params[$key] . ",";
+            }
+        }
+
+        $new_file = $new_file . $row . "\n";
+    }
+
+    file_put_contents($file_name, $new_file);
+    fclose($handle);
+    return true;
+
+}
+
+function flash($flash, $flash_type="primary") {
+    session_start();
+    $_SESSION['flash'] = $flash;
+    $_SESSION['flash-type'] = $flash_type;
+}
+
 // DONE: Read
 // DONE: Create
-// TODO: Update
+// DONE: Update
 // DONE: Delete
 
 ?>

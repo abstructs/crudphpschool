@@ -1,21 +1,10 @@
 <?php
 require '../layouts/navbar.php';
 require '../layouts/card.php';
-require '../../controllers/helpers.php';
+require '../layouts/alert.php';
+require '../../controllers/contact_controller.php';
 
-$data = getData();
-
-switch($_SERVER['REQUEST_METHOD']) {
-    case 'POST':
-        $id_to_delete = @$_POST['id_to_delete'];
-        if(isset($id_to_delete)) {
-            deleteContact($id_to_delete);
-            header("Refresh:0");
-        }
-
-        break;
-}
-
+$data = handleIndexRequest();
 ?>
 
 <html>
@@ -26,11 +15,12 @@ switch($_SERVER['REQUEST_METHOD']) {
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="../../vendor/stylesheets/bootstrap.min.css">
         <link rel="stylesheet" href="../../assets/stylesheets/index.css">
-        <script src="home.js"></script>
+        <script src="index.js"></script>
         <title>Home</title>
     </head>
     <body>
     <?php echo navbar('home'); ?>
+    <?php echo alert(); ?>
 
     <section id="header">
         <div class="jumbotron">
