@@ -103,7 +103,7 @@ function createContact($params) {
     $insert_string = trim($insert_string, ",") . "\n";
 
     $file = file_get_contents($file_name);
-    file_put_contents($file_name, $insert_string . $file);
+    file_put_contents($file_name, $insert_string . trim($file, "\n"));
 
     fclose($handle);
     return true;

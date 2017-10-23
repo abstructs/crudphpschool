@@ -45,8 +45,8 @@ function handleNewRequests() {
             $title = @$_POST['title'];
             if(isset($first_name) && isset($last_name) && isset($title)) {
                 if(createContact($_POST)) {
-                    header("Location: ./index.php");
                     flash("Contact successfully created!", "success");
+                    header("Location: ./index.php");
                 }
             }
             break;
