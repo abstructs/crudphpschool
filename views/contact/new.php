@@ -4,7 +4,7 @@
     require '../../controllers/contact_controller.php';
 
     handleNewRequests();
-
+//    echo var_dump($_FILES);
 ?>
 
 <html>

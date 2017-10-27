@@ -48,18 +48,56 @@ function getData() {
 // RETURNS: a function that takes a thingToFind and searches for it
 //          in the data when called.
 // REQUIRES: thing must exist in database otherwise returns false
-function findBy($column_name) {
-    return function($thingToFind) use($column_name) {
-        $data = getData();
-        foreach($data as $row) {
-            // Uses lowercase for robustness although data should be formatted better
-            if (strtolower($row[$column_name]) === strtolower(((string)$thingToFind))) {
-                return $row;
-            }
-        }
+// NOTE: this function isn't really meant to be called by clients,
+//       more like a function meant to create other functions.
+//       I made this decision because I wanted a reusable way to make
+//       functions like "findById" or "findByFirstNameAndLastName" and
+//       I realized they were all very similar so I created this to automate the
+//       code more.
+function findBy($column_name='') {
+    if(!empty($column_name)) {
+        // EFFECTS: searches the column corresponding to "column name" for the value "thingtofind"
+        //          return false if not found
+        return function($thingToFind, $max_results=-1) use($column_name) {
+            $data = getData();
+            $results = [];
+            $results_count = 0;
+            foreach($data as $row) {
+                // Uses lowercase for robustness although data should be formatted better
+                if (strtolower($row[$column_name]) === strtolower(((string)$thingToFind))) {
+                    array_push($results, $row);
+                    $results_count++;
+                }
 
-        return false;
-    };
+                if($results_count == $max_results) break;
+            }
+            if(!empty($results)) return $results;
+            return false;
+        };
+    } else {
+        // EFFECTS: takes an assoc array with keys for the column to search and values for the value to search
+        //          Ex. to search first name you would pass
+        //          { ['first_name'] => 'NAME',
+        //           ['last_name'] => 'NAME' }
+        //          only returns true if every column's value is in the entry
+        return function($arr) {
+            $data = getData();
+            $results = [];
+            foreach($data as $row) {
+                $cond = true;
+                foreach($arr as $key => $value) {
+                    if(!(strtolower($arr[$key]) === strtolower(((string)$row[$key])))) {
+                        $cond = false;
+                        break;
+                    }
+                }
+                if ($cond) array_push($results, $row);
+            }
+
+            if(!empty($results)) return $results;
+            return false;
+        };
+    }
 
 }
 
@@ -68,6 +106,9 @@ function findBy($column_name) {
 function findById($id) { return findBy('id')($id); }
 function findByFirstName($first_name) { return findBy('first_name')($first_name); }
 function findByLastName($last_name) { return findBy('last_name')($last_name); }
+function findByFirstAndLastName($first_name, $last_name) {
+    return findBy()(array('first_name' => $first_name, 'last_name' => $last_name));
+}
 
 // EFFECTS: Creates a new contact and writes it to the file
 // MODIFIES: textfile
@@ -186,10 +227,5 @@ function flash($flash, $flash_type="primary") {
     $_SESSION['flash-type'] = $flash_type;
     echo var_dump($_SESSION);
 }
-
-// DONE: Read
-// DONE: Create
-// DONE: Update
-// DONE: Delete
 
 ?>

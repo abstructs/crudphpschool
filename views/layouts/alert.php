@@ -14,7 +14,12 @@ function alert($has_form=false) {
 
         @session_unset($_SESSION['flash-type']);
         @session_unset($_SESSION['flash']);
-        return '<div class="mb-0 alert alert-' . $class . '">' . $flash .'</div>';
+        return '<div class="mb-0 alert alert-' . $class . '">'
+                    . $flash .'
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>';
     }
     // return an empty div with alert id so javascript can do ajax alerts
     return '<div id="alert"></div>';

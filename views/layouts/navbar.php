@@ -23,6 +23,11 @@ function navbar($active="") {
                 <a class="nav-link" href="../contact/new.php">New Contact</a>
             </li>
         </ul>
+        <form action="./search.php" class="form-inline my-2 my-lg-0 ml-auto">
+          <input name="first_name" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <input name="search_filters[first_name]" class="form-control mr-sm-2" type="hidden" value="on">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Quick Search</button>
+        </form>
     </nav>
     ';
 

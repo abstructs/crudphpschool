@@ -11,7 +11,7 @@ function handleIndexRequest() {
 }
 
 function handleShowRequest() {
-    $user_data = findById($_GET['id']);
+    $user_data = findById($_GET['id'], 1)[0];
     foreach($user_data as $key => $value) {
         if($user_data[$key] === null) {
             $user_data[$key] = '';
@@ -61,7 +61,7 @@ function handleEditRequests() {
             $last_name = @$_POST['last_name'];
             $title = @$_POST['title'];
             $id = @$_GET['id'];
-            if(isset($first_name) && isset($last_name) && isset($title) &&isset($id)) {
+            if(isset($first_name) && isset($last_name) && isset($title) && isset($id)) {
                 if(updateContact($id, $_POST)) {
                     flash("Contact successfully edited!", "success");
                     header("Location: ./index.php");
@@ -71,7 +71,7 @@ function handleEditRequests() {
         case 'GET':
             $id = $_GET['id'];
             if(isset($id)) {
-                $user_data = findById($id);
+                $user_data = findById($id, 1)[0];
                 if(!$user_data) {
                     flash("User doesn't exist.", "danger");
                     header("Location: ./index.php");
@@ -85,7 +85,39 @@ function handleEditRequests() {
                 header("Location: ./index.php");
             }
             break;
+        default:
+            flash("User doesn't exist.", "danger");
+            header("Location: ./index.php");
     }
+}
+
+function handleSearchRequests() {
+    $include_first_name = @$_GET['search_filters']['first_name'] === "on";
+    $include_last_name = @$_GET['search_filters']['last_name'] === "on";
+    $first_name = @$_GET['first_name'];
+    $last_name = @$_GET['last_name'];
+
+    $first_name_valid = isset($first_name) && !empty($first_name);
+    $last_name_valid = isset($last_name) && !empty($last_name);
+
+    if($include_first_name && $include_last_name) {
+        if($first_name_valid && $last_name_valid) {
+            return findByFirstAndLastName($first_name, $last_name);
+        }
+
+        return false;
+    }
+    else if($include_first_name) {
+        if($first_name_valid) {
+            return findByFirstName($first_name);
+        }
+    }
+    else if($include_last_name) {
+        if($last_name_valid) {
+            return findByLastName($last_name);
+        }
+    }
+    return false;
 }
 
 ?>

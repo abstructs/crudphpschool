@@ -4,7 +4,6 @@ require '../layouts/alert.php';
 require '../../models/getID.php';
 require '../../controllers/contact_controller.php';
 
-
 $user_data = handleEditRequests();
 
 ?>
