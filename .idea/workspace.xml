@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71f73d06-a38a-4ed5-9e94-e651e5036157" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/contact_controller.php" afterPath="$PROJECT_DIR$/controllers/contact_controller.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/helpers.php" afterPath="$PROJECT_DIR$/controllers/helpers.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/database" afterPath="$PROJECT_DIR$/db/database" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/contact/edit.php" afterPath="$PROJECT_DIR$/views/contact/edit.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/contact/new.php" afterPath="$PROJECT_DIR$/views/contact/new.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/layouts/alert.php" afterPath="$PROJECT_DIR$/views/layouts/alert.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/layouts/navbar.php" afterPath="$PROJECT_DIR$/views/layouts/navbar.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -30,7 +24,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="new.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="new.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/contact/new.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
@@ -125,12 +119,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="alert.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="alert.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/layouts/alert.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="20" column="29" lean-forward="true" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
-              <folding />
+            <state relative-caret-position="150">
+              <caret line="14" column="43" lean-forward="true" selection-start-line="14" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
+              <folding>
+                <marker date="1509069936000" expanded="true" signature="751:802" ph="..." />
+                <marker date="1509069936000" expanded="true" signature="751:814" ph="..." />
+                <marker date="1509069936000" expanded="true" signature="751:855" ph="..." />
+                <marker date="1509069936000" expanded="true" signature="751:861" ph="..." />
+                <marker date="1509069936000" expanded="true" signature="751:1075" ph="..." />
+                <marker date="1509069936000" expanded="true" signature="881:903" ph="{...}" />
+                <marker date="1509069936000" expanded="true" signature="881:949" ph="{...}" />
+                <marker date="1509069936000" expanded="true" signature="881:1052" ph="{...}" />
+                <marker date="1509069936000" expanded="true" signature="1344:1351" ph="×" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -203,9 +207,9 @@
         <option value="$PROJECT_DIR$/views/contact/edit.php" />
         <option value="$PROJECT_DIR$/views/contact/search.php" />
         <option value="$PROJECT_DIR$/views/layouts/navbar.php" />
-        <option value="$PROJECT_DIR$/views/layouts/alert.php" />
         <option value="$PROJECT_DIR$/controllers/contact_controller.php" />
         <option value="$PROJECT_DIR$/views/contact/new.php" />
+        <option value="$PROJECT_DIR$/views/layouts/alert.php" />
       </list>
     </option>
   </component>
@@ -363,12 +367,12 @@
       <workItem from="1508563425327" duration="819000" />
       <workItem from="1508607572299" duration="1207000" />
       <workItem from="1508704365715" duration="15243000" />
-      <workItem from="1508782369801" duration="13820000" />
+      <workItem from="1508782369801" duration="14387000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64384000" />
+    <option name="totallyTimeSpent" value="64951000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="57" y="23" width="1314" height="770" extended-state="0" />
@@ -705,14 +709,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/layouts/alert.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="20" column="29" lean-forward="true" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/contact/new.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="103">
@@ -734,6 +730,24 @@
         <state relative-caret-position="105">
           <caret line="7" column="2" lean-forward="true" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/layouts/alert.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="14" column="43" lean-forward="true" selection-start-line="14" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
+          <folding>
+            <marker date="1509069936000" expanded="true" signature="751:802" ph="..." />
+            <marker date="1509069936000" expanded="true" signature="751:814" ph="..." />
+            <marker date="1509069936000" expanded="true" signature="751:855" ph="..." />
+            <marker date="1509069936000" expanded="true" signature="751:861" ph="..." />
+            <marker date="1509069936000" expanded="true" signature="751:1075" ph="..." />
+            <marker date="1509069936000" expanded="true" signature="881:903" ph="{...}" />
+            <marker date="1509069936000" expanded="true" signature="881:949" ph="{...}" />
+            <marker date="1509069936000" expanded="true" signature="881:1052" ph="{...}" />
+            <marker date="1509069936000" expanded="true" signature="1344:1351" ph="×" />
+          </folding>
         </state>
       </provider>
     </entry>

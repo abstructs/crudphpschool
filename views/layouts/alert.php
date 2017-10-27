@@ -14,12 +14,22 @@ function alert($has_form=false) {
 
         @session_unset($_SESSION['flash-type']);
         @session_unset($_SESSION['flash']);
+        $close_js = '
+            <script>
+                var btn = document.getElementById("alert-close");
+                btn.addEventListener("click", function(event) {
+                    var trget = event.target.parentNode.parentNode;
+                    trget.innerHTML = "";
+                    trget.className = "";
+                });
+            </script>
+        ';
         return '<div class="mb-0 alert alert-' . $class . '">'
                     . $flash .'
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <button type="button" id="alert-close" class="close" data-dismiss="alert" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
-                </div>';
+                </div>' . $close_js;
     }
     // return an empty div with alert id so javascript can do ajax alerts
     return '<div id="alert"></div>';
