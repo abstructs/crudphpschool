@@ -10,7 +10,7 @@ require '../layouts/card.php';
 require '../../controllers/contact_controller.php';
 
 $search_data = handleSearchRequests();
-echo var_dump($_GET['search_filters']);
+//echo var_dump($_GET['search_filters']);
 ?>
 
 <html>

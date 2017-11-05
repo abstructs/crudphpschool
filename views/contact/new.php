@@ -4,7 +4,6 @@
     require '../../controllers/contact_controller.php';
 
     handleNewRequests();
-//    echo var_dump($_FILES);
 ?>
 
 <html>
@@ -32,7 +31,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-8 mx-auto">
-                        <form method="POST" onsubmit="return validateInput()">
+                        <form method="POST" onsubmit="return validateInput()" enctype="multipart/form-data">
                             <div class="form-row">
                                 <div class="col">
                                     <label for="title">Title*</label>
@@ -81,6 +80,7 @@
                             <div class="form-group">
                                 <label for="picture">Picture</label>
                                 <input id="picture" name="picture" type="file" class="form-control" placeholder="Picture"/>
+                                <small id="picture_error" class="form-text"></small>
                             </div>
                             <div class="form-group">
                                 <label for="comment">Comment</label>

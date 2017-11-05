@@ -6,7 +6,7 @@
 //           flash session variable, use AJAX for pages with form
 function alert($has_form=false) {
     $class="primary";
-    session_start();
+//    session_start();
     $flash = @$_SESSION['flash'];
     $flash_type = @$_SESSION['flash-type'];
     if(isset($flash) && !$has_form) {

@@ -4,6 +4,7 @@ require __DIR__ . '../../models/contact_schema.php';
 // CONSTANTS:
 define("DATA_LENGTH", 3);
 define("FILE_NAME", $_SERVER['DOCUMENT_ROOT'] . '/db/database');
+define("UPLOAD_PATH", $_SERVER['DOCUMENT_ROOT'] . '/public/system/images/');
 
 // EFFECTS: gets data from the file, if file doesn't exist creates one
 // RETURNS: assoc array of the data read from the file
@@ -110,7 +111,7 @@ function findByFirstAndLastName($first_name, $last_name) {
     return findBy()(array('first_name' => $first_name, 'last_name' => $last_name));
 }
 
-// EFFECTS: Creates a new contact and writes it to the file
+// EFFECTS: Creates a new contact and writes it to the file, does some logic for handling photo upload
 // MODIFIES: textfile
 // REQUIRES: textfile must exist
 // RETURNS: boolean
@@ -119,7 +120,25 @@ function createContact($params) {
         return false;
     }
 
-    $file_name = FILE_NAME;
+    $photo_to_upload = $_FILES['picture'];
+    if(isset($photo_to_upload)) {
+        // check if the file type is in the allowed types, returns false if not
+        $allowed_types = array(IMAGETYPE_PNG, IMAGETYPE_JPEG);
+        if(!in_array(exif_imagetype($_FILES['picture']['tmp_name']), $allowed_types)) {
+            return false;
+        }
+
+        // generate a unique name with a randomized salt and the file extension
+        $file_name = crypt($photo_to_upload['name'], str_shuffle("1234567890!@#$%^&*()_+/")) . "."
+            . pathinfo($photo_to_upload['name'], PATHINFO_EXTENSION);
+
+        // moves the file
+        move_uploaded_file($photo_to_upload['tmp_name'], UPLOAD_PATH . $file_name);
+
+        // add filename to params
+        $params['picture'] = $file_name;
+    }
+
     $insert_string = '';
     if(!file_exists($file_name)) {
         touch($file_name);
@@ -222,10 +241,9 @@ function updateContact($id, $params) {
 }
 
 function flash($flash, $flash_type="primary") {
-    session_start();
+//    session_start();
     $_SESSION['flash'] = $flash;
     $_SESSION['flash-type'] = $flash_type;
-    echo var_dump($_SESSION);
 }
 
 ?>
