@@ -16,7 +16,6 @@ $data = handleIndexRequest();
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="../../vendor/stylesheets/bootstrap.min.css">
         <link rel="stylesheet" href="../../assets/stylesheets/index.css">
-        <script src="index.js"></script>
         <title>Home</title>
     </head>
     <body>
@@ -36,7 +35,7 @@ $data = handleIndexRequest();
                     <?php
                         foreach($data as $row) {
                             if(isset($row['id']) && isset($row['title']) && isset($row['first_name']) && isset($row['last_name'])) {
-                                echo card($row['id'], $row['title'], $row['first_name'], $row['last_name']);
+                                echo card($row['id'], $row['title'], $row['first_name'], $row['last_name'], $row['picture']);
                             }
                         }
                     ?>

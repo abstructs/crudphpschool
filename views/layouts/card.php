@@ -1,8 +1,9 @@
 <?php
 // EFFECTS: generates some HTML code for the cards
-function card($id, $title, $first_name, $last_name) {
+function card($id, $title, $first_name, $last_name, $photo_url="default.jpg") {
   $card = '
-        <div id="card_for_' . $id .'" class="card bg-dark text-white p-3 contact_card">
+        <div id="card_for_' . $id .'" class="card bg-dark text-white p-3 contact_card" style="width: 20rem;">
+            <img class="card-img-top" src="' . IMAGE_PATH . $photo_url . '" alt="Card image cap" style="height: 200px; width: 100%;">
             <div class="card-body">
                 <h4 class="card-title">' . $title . ' ' . $first_name . ' ' . $last_name . '</h4>
                 <h6 class="card-subtitle mb-2 text-muted"></h6>

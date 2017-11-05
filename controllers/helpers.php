@@ -5,6 +5,7 @@ require __DIR__ . '../../models/contact_schema.php';
 define("DATA_LENGTH", 3);
 define("FILE_NAME", $_SERVER['DOCUMENT_ROOT'] . '/db/database');
 define("UPLOAD_PATH", $_SERVER['DOCUMENT_ROOT'] . '/public/system/images/');
+define("IMAGE_PATH", "/phpassignment1/public/system/images/");
 
 // EFFECTS: gets data from the file, if file doesn't exist creates one
 // RETURNS: assoc array of the data read from the file
@@ -121,7 +122,8 @@ function createContact($params) {
     }
 
     $photo_to_upload = $_FILES['picture'];
-    if(isset($photo_to_upload)) {
+    $file_name = FILE_NAME;
+    if(isset($photo_to_upload) && !$photo_to_upload["name"] == "") {
         // check if the file type is in the allowed types, returns false if not
         $allowed_types = array(IMAGETYPE_PNG, IMAGETYPE_JPEG);
         if(!in_array(exif_imagetype($_FILES['picture']['tmp_name']), $allowed_types)) {
@@ -129,14 +131,14 @@ function createContact($params) {
         }
 
         // generate a unique name with a randomized salt and the file extension
-        $file_name = crypt($photo_to_upload['name'], str_shuffle("1234567890!@#$%^&*()_+/")) . "."
+        $photo_name = crypt($photo_to_upload['name'], str_shuffle("1234567890!@#$%^&*()_+/")) . "_."
             . pathinfo($photo_to_upload['name'], PATHINFO_EXTENSION);
 
         // moves the file
-        move_uploaded_file($photo_to_upload['tmp_name'], UPLOAD_PATH . $file_name);
+        move_uploaded_file($photo_to_upload['tmp_name'], (UPLOAD_PATH . $photo_name));
 
         // add filename to params
-        $params['picture'] = $file_name;
+        $params['picture'] = $photo_name;
     }
 
     $insert_string = '';
@@ -156,8 +158,8 @@ function createContact($params) {
         if(!isset($params[$key])) {
             $params[$key] = null;
         }
-
-        $insert_string = $insert_string . $params[$key] . ",";
+        // remove commas from input otherwise messes up parsing of data
+        $insert_string = $insert_string . str_replace(",", "", $params[$key]) . ",";
     }
 
     $insert_string = trim($insert_string, ",") . "\n";
@@ -204,9 +206,15 @@ function updateContact($id, $params) {
     $id = (string)$id;
     $params['id'] = $id;
 
+
     if(!file_exists($file_name) || filesize($file_name) <= 0) {
         return false;
     }
+
+
+    $file_name = FILE_NAME;
+
+    $params['picture'] = handlePhotoUpdate($id, $params);
 
     $handle = fopen($file_name, 'r+');
     $file = fread($handle, filesize($file_name));
@@ -227,7 +235,7 @@ function updateContact($id, $params) {
                     $params[$key] = null;
                 }
 
-                $row = $row . $params[$key] . ",";
+                $row = $row . str_replace(",", "", $params[$key]) . ",";
             }
         }
 
@@ -238,6 +246,52 @@ function updateContact($id, $params) {
     fclose($handle);
     return true;
 
+}
+
+// EFFECTS: handles updating and deleting photo
+//
+function handlePhotoUpdate($id, $params) {
+    $user_old_photo = "";
+    $photo_name = "";
+    $photo_to_upload = @$_FILES['picture'];
+
+    // uses "findbyid" in ifs to prevent unneeded lookup
+    if($params['remove_picture'] == "on") {
+        $user = findById($id)[0];
+        $user_old_photo = $user['picture'];
+        if($user_old_photo != "") {
+            unlink(UPLOAD_PATH . $user_old_photo);
+        }
+    }
+    else if(isset($photo_to_upload) && !$photo_to_upload["name"] == "") {
+        $user = findById($id)[0];
+        // check if the file type is in the allowed types, returns false if not
+        $allowed_types = array(IMAGETYPE_PNG, IMAGETYPE_JPEG);
+        $user_old_photo = $user['picture'];
+        // delete user photo if set
+        if($user_old_photo != "") {
+            unlink(UPLOAD_PATH . $user[0]['picture']);
+        }
+
+        $user_old_photo = $user['picture'];
+        if(!in_array(exif_imagetype($_FILES['picture']['tmp_name']), $allowed_types)) {
+            return false;
+        }
+        // generate a unique name with a randomized salt and the file extension
+        $photo_name = crypt($photo_to_upload['name'], str_shuffle("1234567890!@#$%^&*()_+/")) . "_."
+            . pathinfo($photo_to_upload['name'], PATHINFO_EXTENSION);
+
+        // moves the file
+        move_uploaded_file($photo_to_upload['tmp_name'], (UPLOAD_PATH . $photo_name));
+
+        // add filename to params
+        $params['picture'] = $photo_name;
+    }
+    else {
+        return $user_old_photo;
+    }
+
+    return $photo_name;
 }
 
 function flash($flash, $flash_type="primary") {

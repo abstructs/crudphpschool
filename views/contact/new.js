@@ -72,7 +72,7 @@ function isValidFileType(file_string) {
     var valid_file_types = ['.png', '.jpg', '.jpeg'];
     var isValidType = false;
     for(file_type of valid_file_types) {
-        if(file_string.substr(file_string.length - file_type.length, file_type.length) == file_type) {
+        if(file_string.substr(file_string.length - file_type.length, file_type.length).toLowerCase() == file_type) {
             isValidType = true;
             break;
         }

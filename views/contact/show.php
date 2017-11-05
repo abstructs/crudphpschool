@@ -32,7 +32,11 @@ $user_data = handleShowRequest();
             <ul class="list-group mr-5 ml-5">
                 <?php
                 foreach($user_data as $key => $value) {
-                    echo '<li class="list-group-item">' . $key . ': ' . $value . '</li>';
+                    if($key == 'picture') {
+                        echo '<li class="list-group-item">' . $key . ': ' . '<img style="height: 200px;" src="' . IMAGE_PATH . $value .'"/>' . '</li>';
+                    } else {
+                        echo '<li class="list-group-item">' . $key . ': ' . $value . '</li>';
+                    }
                 }
                 ?>
             </ul>

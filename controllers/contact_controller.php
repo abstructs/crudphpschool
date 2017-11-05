@@ -6,6 +6,8 @@ require __DIR__ . '/helpers.php';
 //       I made this decision because I couldn't think of a way to make the data scope to the file the function
 //       is being called in. Regardless it works. Dear future self, don't hate me.
 
+//session_start();
+
 function handleIndexRequest() {
     return getData();
 }
@@ -25,7 +27,6 @@ function handleDeleteRequest() {
     $id = @$_POST['id'];
     if(isset($id)) {
         if(deleteContact($id)) {
-            session_start();
             $_SESSION['flash'] = "Deleted successfully.";
             $_SESSION['flash-type'] = "success";
             header("Location: ./index.php");

@@ -33,7 +33,7 @@ $user_data = handleEditRequests();
     <div class="container">
         <div class="row">
             <div class="col-sm-8 mx-auto">
-                <form method="POST" onsubmit="return validateInput();">
+                <form method="POST" onsubmit="return validateInput();" enctype="multipart/form-data">
                     <div class="form-row">
                         <div class="col">
                             <label for="title">Title*</label>
@@ -81,7 +81,14 @@ $user_data = handleEditRequests();
                     </div>
                     <div class="form-group">
                         <label for="picture">Picture</label>
+                        <br>
+                        <img style="height: 200px;" src="<?php echo IMAGE_PATH . $user_data['picture']; ?>"/>
                         <input value="<?php echo $user_data['picture']; ?>" id="picture" name="picture" type="file" class="form-control" placeholder="Picture"/>
+                        <small id="picture_error" class="form-text"></small>
+                        <label for="remove_picture">
+                            <input name="remove_picture" type="checkbox"/>
+                            Remove Photo
+                        </label>
                     </div>
                     <div class="form-group">
                         <label for="comment">Comment</label>
