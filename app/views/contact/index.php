@@ -1,21 +1,11 @@
-<?php
-require '../layouts/navbar.php';
-require '../layouts/card.php';
-require '../layouts/alert.php';
-require '../../controllers/contact_controller.php';
-
-$data = handleIndexRequest();
-
-?>
-
 <html>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport"
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="../../vendor/stylesheets/bootstrap.min.css">
-        <link rel="stylesheet" href="../../assets/stylesheets/index.css">
+        <link rel="stylesheet" href="<?php echo STYLESHEETS_PATH . "bootstrap.min.css"; ?>">
+        <link rel="stylesheet" href="<?php echo STYLESHEETS_PATH . "index.css"; ?>">
         <title>Home</title>
     </head>
     <body>

@@ -1,12 +1,11 @@
 <?php
-require __DIR__ . '/helpers.php';
+
 
 // NOTE: For any controllers that get some data, the corresponding function will return
 //       that data. If there is no data to return the function returns false or doesn't return at all.
 //       I made this decision because I couldn't think of a way to make the data scope to the file the function
 //       is being called in. Regardless it works. Dear future self, don't hate me.
 
-//session_start();
 
 function handleIndexRequest() {
     return getData();
@@ -29,7 +28,7 @@ function handleDeleteRequest() {
         if(deleteContact($id)) {
             $_SESSION['flash'] = "Deleted successfully.";
             $_SESSION['flash-type'] = "success";
-            header("Location: ./index.php");
+            header("Location: " . CONTACT_PATH);
         }
     }
     else {
@@ -38,18 +37,36 @@ function handleDeleteRequest() {
     }
 }
 
+// EFFECTS: handles get paramaters for the new page
+//          creates a contact from first_name, last_name, title
+//          and other info.
+// REQUIRES: first_name, title and last_name must be present and non-blank
+// REQUIRES: first_name, title and last_name must be present and non-blank
 function handleNewRequests() {
     switch($_SERVER['REQUEST_METHOD']) {
         case 'POST':
             $first_name = @$_POST['first_name'];
             $last_name = @$_POST['last_name'];
             $title = @$_POST['title'];
+
             if(isset($first_name) && isset($last_name) && isset($title)) {
+                if(strlen($first_name) < 1 || strlen($last_name) < 1 || strlen($title) < 1) {
+                    flash("Required fields left blank.", "danger");
+                    header("Location: " . CONTACT_PATH);
+                    exit();
+                }
                 if(createContact($_POST)) {
                     flash("Contact successfully created!", "success");
-                    header("Location: ./index.php");
+                    header("Location: " . CONTACT_PATH);
+                    exit();
+                } else {
+                    flash("Something went wrong", "danger");
+                    header("Location: " . CONTACT_PATH);
+                    exit();
                 }
             }
+            break;
+        default:
             break;
     }
 }
@@ -65,7 +82,7 @@ function handleEditRequests() {
             if(isset($first_name) && isset($last_name) && isset($title) && isset($id)) {
                 if(updateContact($id, $_POST)) {
                     flash("Contact successfully edited!", "success");
-                    header("Location: ./index.php");
+                    header("Location: " . CONTACT_PATH);
                 }
             }
             break;
@@ -75,7 +92,7 @@ function handleEditRequests() {
                 $user_data = findById($id, 1)[0];
                 if(!$user_data) {
                     flash("User doesn't exist.", "danger");
-                    header("Location: ./index.php");
+                    header("Location: " . CONTACT_PATH);
                 }
                 else {
                     return $user_data;
@@ -83,12 +100,12 @@ function handleEditRequests() {
             }
             else {
                 flash("No ID given", "danger");
-                header("Location: ./index.php");
+                header("Location: " . CONTACT_PATH);
             }
             break;
         default:
             flash("User doesn't exist.", "danger");
-            header("Location: ./index.php");
+            header("Location: " . CONTACT_PATH);
     }
 }
 

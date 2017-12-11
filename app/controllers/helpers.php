@@ -1,11 +1,11 @@
 <?php
 
-require __DIR__ . '../../models/contact_schema.php';
+//require __DIR__ . '../../models/contact_schema.php';
 // CONSTANTS:
 define("DATA_LENGTH", 3);
 define("FILE_NAME", $_SERVER['DOCUMENT_ROOT'] . '/db/database');
-define("UPLOAD_PATH", $_SERVER['DOCUMENT_ROOT'] . '/public/system/images/');
-define("IMAGE_PATH", "/phpassignment1/public/system/images/");
+//define("UPLOAD_PATH", $_SERVER['DOCUMENT_ROOT'] . '/public/system/images/');
+//define("IMAGE_PATH", "/phpassignment1/public/system/images/");
 
 // EFFECTS: gets data from the file, if file doesn't exist creates one
 // RETURNS: assoc array of the data read from the file
@@ -303,9 +303,7 @@ function handlePhotoUpdate($id, $params) {
 
     return $photo_name;
 }
-
 function flash($flash, $flash_type="primary") {
-//    session_start();
     $_SESSION['flash'] = $flash;
     $_SESSION['flash-type'] = $flash_type;
 }

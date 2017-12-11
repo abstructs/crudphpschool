@@ -1,16 +1,5 @@
 <?php
-
-?>
-
-
-<?php
-require '../layouts/navbar.php';
-require '../layouts/alert.php';
-require '../layouts/card.php';
-require '../../controllers/contact_controller.php';
-
-$search_data = handleSearchRequests();
-//echo var_dump($_GET['search_filters']);
+//$search_data = handleSearchRequests();
 ?>
 
 <html>
@@ -19,8 +8,8 @@ $search_data = handleSearchRequests();
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../../vendor/stylesheets/bootstrap.min.css">
-    <link rel="stylesheet" href="../../assets/stylesheets/index.css">
+    <link rel="stylesheet" href="<?php echo STYLESHEETS_PATH . "bootstrap.min.css"; ?>">
+    <link rel="stylesheet" href="<?php echo STYLESHEETS_PATH . "index.css"; ?>">
     <title>Search</title>
 </head>
 <body>
@@ -56,6 +45,7 @@ $search_data = handleSearchRequests();
                           </span>
                             <input name="last_name" type="text" class="form-control" placeholder="Enter Last Name">
                         </div>
+                    <input name="page" value="search" type="hidden">
                     <input class="btn btn-dark mt-3" type="submit" value="Search"></input>
                 </form>
             </div>
