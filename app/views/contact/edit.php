@@ -83,10 +83,14 @@
                         ?>
                         <input value="<?php echo $user_data['picture']; ?>" id="picture" name="picture" type="file" class="form-control" placeholder="Picture"/>
                         <small id="picture_error" class="form-text"></small>
-                        <label for="remove_picture">
-                            <input name="remove_picture" type="checkbox"/>
-                            Remove Photo
-                        </label>
+                        <?php
+                            if(file_exists($user_photo_path) && $user_photo != "") {
+                                echo '<label for="remove_picture">
+                                        <input name="remove_picture" type="checkbox"/>
+                                        Remove Photo
+                                    </label>';
+                            }
+                        ?>
                     </div>
                     <div class="form-group">
                         <label for="comment">Comment</label>

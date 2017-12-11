@@ -60,6 +60,11 @@ function handleNewRequests() {
                         exit();
                     }
                 }
+                if(!$_FILES['picture']['size'] <= 500000) {
+                    flash("Photo is too large, please reduce file size to 5mb or lower.", "danger");
+                    header("Location: " . CONTACT_PATH);
+                    exit();
+                }
                 if(strlen($first_name) < 1 || strlen($last_name) < 1 || strlen($title) < 1) {
                     flash("Required fields left blank.", "danger");
                     header("Location: " . CONTACT_PATH);
@@ -95,6 +100,11 @@ function handleEditRequests() {
                 if(!$_FILES['picture']['size'] == 0 && !in_array(getimagesize($_FILES['picture']['tmp_name'])['mime'],
                         $allowed_types)) {
                     flash("File type not supported.", "danger");
+                    header("Location: " . CONTACT_PATH);
+                    exit();
+                }
+                if(!($_FILES['picture']['size'] <= 500000)) {
+                    flash("Photo is too large, please reduce file size to 5mb or lower.", "danger");
                     header("Location: " . CONTACT_PATH);
                     exit();
                 }
