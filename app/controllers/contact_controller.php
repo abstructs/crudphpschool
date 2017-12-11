@@ -83,6 +83,7 @@ function handleEditRequests() {
                 if(updateContact($id, $_POST)) {
                     flash("Contact successfully edited!", "success");
                     header("Location: " . CONTACT_PATH);
+                    exit();
                 }
             }
             break;
@@ -93,6 +94,7 @@ function handleEditRequests() {
                 if(!$user_data) {
                     flash("User doesn't exist.", "danger");
                     header("Location: " . CONTACT_PATH);
+                    exit();
                 }
                 else {
                     return $user_data;
@@ -101,12 +103,16 @@ function handleEditRequests() {
             else {
                 flash("No ID given", "danger");
                 header("Location: " . CONTACT_PATH);
+                exit();
             }
             break;
         default:
             flash("User doesn't exist.", "danger");
             header("Location: " . CONTACT_PATH);
+            exit();
+            break;
     }
+    exit();
 }
 
 function handleSearchRequests() {
