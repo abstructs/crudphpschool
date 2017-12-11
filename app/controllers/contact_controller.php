@@ -60,7 +60,7 @@ function handleNewRequests() {
                         exit();
                     }
                 }
-                if(!$_FILES['picture']['size'] <= 500000) {
+                if(!($_FILES['picture']['size'] <= 500000)) {
                     flash("Photo is too large, please reduce file size to 5mb or lower.", "danger");
                     header("Location: " . CONTACT_PATH);
                     exit();
