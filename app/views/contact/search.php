@@ -1,7 +1,3 @@
-<?php
-//$search_data = handleSearchRequests();
-?>
-
 <html>
 <head>
     <meta charset="UTF-8">
@@ -24,7 +20,6 @@
 </section>
 <section id="search-form">
     <header>
-<!--        <h4 class="text-center">Search</h4>-->
     </header>
     <div class="container">
         <div class="row justify-content-md-center">

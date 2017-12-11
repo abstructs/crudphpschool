@@ -1,7 +1,3 @@
-<?php
-//$user_data = handleShowRequest();
-?>
-
 <html>
     <head>
         <meta charset="UTF-8">

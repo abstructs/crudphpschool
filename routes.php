@@ -14,4 +14,6 @@
 
     define("UPLOAD_PATH", "./assets/images/");
     define("IMAGE_PATH", "./assets/images/");
+
+    define("ROOT_PATH", "./../");
 ?>

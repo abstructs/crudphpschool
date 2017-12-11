@@ -1,11 +1,27 @@
 <?php
 
-//require __DIR__ . '../../models/contact_schema.php';
 // CONSTANTS:
 define("DATA_LENGTH", 3);
-define("FILE_NAME", $_SERVER['DOCUMENT_ROOT'] . '/db/database');
-//define("UPLOAD_PATH", $_SERVER['DOCUMENT_ROOT'] . '/public/system/images/');
-//define("IMAGE_PATH", "/phpassignment1/public/system/images/");
+define("FILE_NAME", ROOT_PATH . 'db/database');
+
+function getSchema() {
+    $contact_schema = array(
+        "id" => null,
+        "title" => null,
+        "first_name" => null,
+        "last_name" => null,
+        "email" => null,
+        "site" => null,
+        "home_number" => null,
+        "office_number" => null,
+        "twitter_url" => null,
+        "facebook_url" => null,
+        "picture" => null,
+        "comment" => null
+    );
+
+    return $contact_schema;
+}
 
 // EFFECTS: gets data from the file, if file doesn't exist creates one
 // RETURNS: assoc array of the data read from the file
@@ -27,7 +43,7 @@ function getData() {
         $i = 0;
         $array_builder = [];
 
-        foreach(CONTACT_SCHEMA as $key => $value) {
+        foreach(getSchema() as $key => $value) {
             if(!isset($row_data[$i])) {
                 $array_builder[$key] = null;
             }
@@ -164,7 +180,7 @@ function createContact($params) {
         $insert_string = ++$id;
     }
 
-    foreach(CONTACT_SCHEMA as $key => $value) {
+    foreach(getSchema() as $key => $value) {
         if(!isset($params[$key])) {
             $params[$key] = null;
         }
@@ -240,7 +256,7 @@ function updateContact($id, $params) {
             // overwrite the row with the new data from params
             $row = '';
             // iterate through schema settings schema keys to corresponding values
-            foreach(CONTACT_SCHEMA as $key => $value) {
+            foreach(getSchema() as $key => $value) {
                 if(!isset($params[$key])) {
                     $params[$key] = null;
                 }
@@ -259,7 +275,6 @@ function updateContact($id, $params) {
 }
 
 // EFFECTS: handles updating and deleting photo
-//
 function handlePhotoUpdate($id, $params) {
     $user_old_photo = "";
     $photo_name = "";
