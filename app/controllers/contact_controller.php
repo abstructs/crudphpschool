@@ -50,6 +50,16 @@ function handleNewRequests() {
             $title = @$_POST['title'];
 
             if(isset($first_name) && isset($last_name) && isset($title)) {
+                if(isset($_FILES['picture'])) {
+                    // check if the file type is in the allowed types, returns an alert if not
+                    $allowed_types = array("image/png", "image/jpeg");
+                    if(!$_FILES['picture']['size'] == 0 && !in_array(getimagesize($_FILES['picture']['tmp_name'])['mime'],
+                            $allowed_types)) {
+                        flash("File type not supported.", "danger");
+                        header("Location: " . CONTACT_PATH);
+                        exit();
+                    }
+                }
                 if(strlen($first_name) < 1 || strlen($last_name) < 1 || strlen($title) < 1) {
                     flash("Required fields left blank.", "danger");
                     header("Location: " . CONTACT_PATH);
@@ -80,6 +90,14 @@ function handleEditRequests() {
             $title = @$_POST['title'];
             $id = @$_GET['id'];
             if(isset($first_name) && isset($last_name) && isset($title) && isset($id)) {
+                $allowed_types = array("image/png", "image/jpeg");
+
+                if(!$_FILES['picture']['size'] == 0 && !in_array(getimagesize($_FILES['picture']['tmp_name'])['mime'],
+                        $allowed_types)) {
+                    flash("File type not supported.", "danger");
+                    header("Location: " . CONTACT_PATH);
+                    exit();
+                }
                 if(updateContact($id, $_POST)) {
                     flash("Contact successfully edited!", "success");
                     header("Location: " . CONTACT_PATH);

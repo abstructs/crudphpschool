@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="<?php echo STYLESHEETS_PATH . "bootstrap.min.css"; ?>">
         <link rel="stylesheet" href="<?php echo STYLESHEETS_PATH . "index.css"; ?>">
-        <script src="../../../public/assets/javascripts/new.js"></script>
+
         <title>Contact</title>
     </head>
     <body>

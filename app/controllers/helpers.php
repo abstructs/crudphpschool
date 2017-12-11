@@ -151,11 +151,7 @@ function createContact($params) {
 
     $file_name = FILE_NAME;
     if(isset($photo_to_upload) && !$photo_to_upload["name"] == "") {
-        // check if the file type is in the allowed types, returns false if not
-        $allowed_types = array(IMAGETYPE_PNG, IMAGETYPE_JPEG);
-        if(!in_array(exif_imagetype($_FILES['picture']['tmp_name']), $allowed_types)) {
-            return false;
-        }
+
 
         // generate a unique name with a randomized salt and the file extension
         $photo_name = crypt($photo_to_upload['name'], str_shuffle("1234567890!@#$%^&*()_+/")) . "_."
