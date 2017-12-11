@@ -105,11 +105,21 @@ function findBy($column_name='') {
 
 // RETURNS: boolean or data
 // (implementations of "findBy" higher order function)
-function findById($id) { return findBy('id')($id); }
-function findByFirstName($first_name) { return findBy('first_name')($first_name); }
-function findByLastName($last_name) { return findBy('last_name')($last_name); }
+function findById($id) {
+    $rslt = findBy('id');
+    return $rslt($id);
+}
+function findByFirstName($first_name) {
+    $rslt = findBy('first_name');
+    return $rslt($first_name);
+}
+function findByLastName($last_name) {
+    $rslt = findBy('last_name');
+    return $rslt($last_name);
+}
 function findByFirstAndLastName($first_name, $last_name) {
-    return findBy()(array('first_name' => $first_name, 'last_name' => $last_name));
+    $rslt = findBy();
+    return $rslt(array('first_name' => $first_name, 'last_name' => $last_name));
 }
 
 // EFFECTS: Creates a new contact and writes it to the file, does some logic for handling photo upload
