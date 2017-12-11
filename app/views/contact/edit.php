@@ -73,7 +73,14 @@
                     <div class="form-group">
                         <label for="picture">Picture</label>
                         <br>
-                        <img style="height: 200px;" src="<?php echo IMAGE_PATH . $user_data['picture']; ?>"/>
+                        <?php
+                            $user_photo = $user_data['picture'];
+                            $user_photo_path = IMAGE_PATH . $user_photo;
+
+                            if(file_exists($user_photo_path) && $user_photo != "") {
+                                echo '<img style="height: 200px;" src="' . $user_photo_path . '"/>';
+                            }
+                        ?>
                         <input value="<?php echo $user_data['picture']; ?>" id="picture" name="picture" type="file" class="form-control" placeholder="Picture"/>
                         <small id="picture_error" class="form-text"></small>
                         <label for="remove_picture">

@@ -229,7 +229,6 @@ function updateContact($id, $params) {
     $id = (string)$id;
     $params['id'] = $id;
 
-
     if(!file_exists($file_name) || filesize($file_name) <= 0) {
         return false;
     }
@@ -273,22 +272,21 @@ function updateContact($id, $params) {
 
 // EFFECTS: handles updating and deleting photo
 function handlePhotoUpdate($id, $params) {
-    $user_old_photo = "";
     $photo_name = "";
     $photo_to_upload = @$_FILES['picture'];
+    $user = findById($id)[0];
+    $user_old_photo = $user['picture'];
 
     // uses "findbyid" in ifs to prevent unneeded lookup
     if($params['remove_picture'] == "on") {
-        $user = findById($id)[0];
         $user_old_photo = $user['picture'];
         if($user_old_photo != "") {
             unlink(UPLOAD_PATH . $user_old_photo);
         }
     }
-    else if(isset($photo_to_upload) && !$photo_to_upload["name"] == "") {
-        $user = findById($id)[0];
+    else if(isset($photo_to_upload) && $photo_to_upload != "" && $photo_to_upload["name"] != "") {
+
         // check if the file type is in the allowed types, returns false if not
-        $allowed_types = array(IMAGETYPE_PNG, IMAGETYPE_JPEG);
         $user_old_photo = $user['picture'];
         // delete user photo if set
         if($user_old_photo != "") {
@@ -297,9 +295,6 @@ function handlePhotoUpdate($id, $params) {
 
         $user_old_photo = $user['picture'];
 
-//        if(!in_array(exif_imagetype($_FILES['picture']['tmp_name']), $allowed_types)) {
-//            return false;
-//        }
         // generate a unique name with a randomized salt and the file extension
         $photo_name = crypt($photo_to_upload['name'], str_shuffle("1234567890!@#$%^&*()_+/")) . "_."
             . pathinfo($photo_to_upload['name'], PATHINFO_EXTENSION);
