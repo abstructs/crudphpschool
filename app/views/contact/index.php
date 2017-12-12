@@ -21,7 +21,7 @@
         <section id="show-contacts">
             <div class="container">
                 <?php if(count($data) == 0) echo nothingToShow() ?>
-                <div class="card-columns" style="display: inline-block;">
+                <div class="card-columns">
                     <?php
                         foreach($data as $row) {
                             if(isset($row['id']) && isset($row['title']) && isset($row['first_name']) && isset($row['last_name'])) {
@@ -32,8 +32,5 @@
                 </div>
             </div>
         </section>
-        <footer>
-            <div id="footer" class="bg-dark"></div>
-        </footer>
     </body>
 </html>

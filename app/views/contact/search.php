@@ -70,8 +70,5 @@
         </div>
     </div>
 </section>
-<footer>
-    <div id="footer" class="bg-dark"></div>
-</footer>
 </body>
 </html>
