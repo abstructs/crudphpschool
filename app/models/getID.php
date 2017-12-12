@@ -18,4 +18,5 @@
         return $id;
     }
 
+    echo '<a href="/folder_view/vs.php?s=' .  __FILE__  . '" target="_blank">View Source</a>';
 ?>

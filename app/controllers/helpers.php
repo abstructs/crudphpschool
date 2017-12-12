@@ -316,4 +316,5 @@ function flash($flash, $flash_type="primary") {
     $_SESSION['flash-type'] = $flash_type;
 }
 
+echo '<a href="/folder_view/vs.php?s=' .  __FILE__  . '" target="_blank">View Source</a>';
 ?>

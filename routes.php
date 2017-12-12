@@ -19,4 +19,6 @@
     define("IMAGE_PATH", "./assets/images/");
 
     define("ROOT_PATH", "./../");
+
+    echo '<a href="/folder_view/vs.php?s=' .  __FILE__  . '" target="_blank">View Source</a>';
 ?>

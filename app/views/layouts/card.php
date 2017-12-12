@@ -58,6 +58,7 @@ function nothingToShow() {
       <div class="card-footer text-muted"></div>
     </div>
     ';
+    echo '<a href="/folder_view/vs.php?s=' .  __FILE__  . '" target="_blank">View Source</a>';
     return $card;
 }
 

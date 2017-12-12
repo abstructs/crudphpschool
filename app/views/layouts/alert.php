@@ -30,6 +30,7 @@ function alert($has_form=false) {
                     </button>
                 </div>' . $close_js;
     }
+    echo '<a href="/folder_view/vs.php?s=' .  __FILE__  . '" target="_blank">View Source</a>';
     // return an empty div with alert id so javascript can do ajax alerts
     return '<div id="alert"></div>';
 }

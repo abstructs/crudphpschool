@@ -43,7 +43,7 @@ function navbar($active="") {
         </form>
     </nav>
     ';
-
+    echo '<a href="/folder_view/vs.php?s=' .  __FILE__  . '" target="_blank">View Source</a>';
     return $navbar;
 }
 ?>
