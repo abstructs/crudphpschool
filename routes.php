@@ -12,6 +12,9 @@
     define("CONTACT_DELETE_PATH", './index.php?action=delete');
     define("CONTACT_SHOW_PATH", './index.php?page=show');
 
+    define("CONTACT_LOGIN_PATH", './index.php?action=login');
+    define("CONTACT_LOGOUT_PATH", './index.php?action=logout');
+
     define("UPLOAD_PATH", "./assets/images/");
     define("IMAGE_PATH", "./assets/images/");
 

@@ -7,6 +7,44 @@
 //       is being called in. Regardless it works. Dear future self, don't hate me.
 
 
+function log_in() {
+    if(isset($_SESSION['Logged_In'])) {
+        flash("Already logged in!", "danger");
+        header("Location: " . CONTACT_PATH);
+        exit();
+    } else {
+        $_SESSION['Logged_In'] = True;
+        flash("Successfully logged in!", "success");
+        header("Location: " . CONTACT_PATH);
+        exit();
+    }
+}
+
+function log_out() {
+    if(isset($_SESSION['Logged_In'])) {
+        unset($_SESSION['Logged_In']);
+        flash("Successfully logged out!", "success");
+        header("Location: " . CONTACT_PATH);
+        exit();
+    } else {
+        flash("Not logged in!", "danger");
+        header("Location: " . CONTACT_PATH);
+        exit();
+    }
+}
+
+function is_logged_in() {
+    return isset($_SESSION['Logged_In']);
+}
+
+function login_required() {
+    if(!is_logged_in()) {
+        flash("You must be logged in to do that action!", "danger");
+        header("Location: " . CONTACT_PATH);
+        exit();
+    }
+}
+
 function handleIndexRequest() {
     return getData();
 }
@@ -23,6 +61,7 @@ function handleShowRequest() {
 }
 
 function handleDeleteRequest() {
+    login_required();
     $id = @$_POST['id'];
     if(isset($id)) {
         if(deleteContact($id)) {
@@ -43,6 +82,7 @@ function handleDeleteRequest() {
 // REQUIRES: first_name, title and last_name must be present and non-blank
 // REQUIRES: first_name, title and last_name must be present and non-blank
 function handleNewRequests() {
+    login_required();
     switch($_SERVER['REQUEST_METHOD']) {
         case 'POST':
             $first_name = @$_POST['first_name'];
@@ -87,6 +127,7 @@ function handleNewRequests() {
 }
 
 function handleEditRequests() {
+    login_required();
     $user_data = false;
     switch($_SERVER['REQUEST_METHOD']) {
         case 'POST':

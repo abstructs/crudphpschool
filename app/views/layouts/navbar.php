@@ -13,15 +13,27 @@ function navbar($active="") {
         default:
             break;
     }
+    $nav_link = "";
+    if(is_logged_in()) {
+        $nav_link = '<li class="navbar-item ' . $contact . '">
+                        <a class="nav-link" href="' . CONTACT_NEW_PATH . '">New Contact</a>
+                    </li>
+                    <li class="navbar-item">
+                        <a class="nav-link" href="' . CONTACT_LOGOUT_PATH . '">Logout</a>
+                    </li>';
+    } else {
+        $nav_link = '<li class="navbar-item">
+                        <a class="nav-link" href="' . CONTACT_LOGIN_PATH . '">Log In</a>
+                    </li>';
+    }
+
     $navbar = '
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <ul class="navbar-nav">
             <li class="navbar-item '. $home . '">
                 <a class="nav-link" href="' . CONTACT_PATH . '">Home</a>
             </li>
-            <li class="navbar-item ' . $contact . '">
-                <a class="nav-link" href="' . CONTACT_NEW_PATH . '">New Contact</a>
-            </li>
+            ' . $nav_link .'
         </ul>
         <form action="' . CONTACT_PATH . '" class="form-inline my-2 my-lg-0 ml-auto">
           <input name="first_name" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

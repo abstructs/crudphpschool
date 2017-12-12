@@ -10,7 +10,7 @@
     <title>Contact</title>
 </head>
 <body>
-<?php echo navbar('contact'); ?>
+<?php echo navbar(); ?>
 <?php echo alert(true); ?>
 
 <section id="header">

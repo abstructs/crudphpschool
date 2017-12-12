@@ -5,9 +5,26 @@ function card($id, $title, $first_name, $last_name, $photo_url="") {
     if($photo_url != "" && file_exists(IMAGE_PATH . $photo_url)) {
         $photo = '<img class="card-img-top" src="' . IMAGE_PATH . $photo_url . '" alt="contact photo" style="height: 200px; width: 100%;">';
     }
+    $additional_actions = "";
+    if(is_logged_in()) {
+        $additional_actions = '<div class="ml-md-3">
+                                    <form action="' . CONTACT_PATH . '" method="GET">
+                                        <input name="id" type="hidden" class="form-control" value="' . $id . '"/>
+                                        <input name="page" type="hidden" class="form-control" value="edit"/>
+                                        <input type="submit" class="btn btn-light" value="Update">
+                                    </form>
+                                </div>
+                                <div class="ml-md-3">
+                                    <form action="' . CONTACT_PATH . '" method="POST" onsubmit="return confirm(\'Are you sure?\')">
+                                        <input name="id" type="hidden" class="form-control" value="' . $id . '"/>
+                                        <input name="action" type="hidden" class="form-control" value="delete"/>
+                                        <input type="submit" class="btn btn-warning" value="Delete">
+                                    </form>
+                                </div>';
+    }
+
   $card = '
         <div id="card_for_' . $id .'" class="card bg-dark text-white p-3 contact_card" style="width: 20rem;">
-            
             ' . $photo . '
             <div class="card-body">
                 <h4 class="card-title">' . $title . ' ' . $first_name . ' ' . $last_name . '</h4>
@@ -22,20 +39,7 @@ function card($id, $title, $first_name, $last_name, $photo_url="") {
                             <input type="submit" class="btn btn-secondary" value="Show">
                         </form>
                     </div>
-                    <div class="ml-md-3">
-                        <form action="' . CONTACT_PATH .'" method="GET">
-                            <input name="id" type="hidden" class="form-control" value="' . $id .'"/>
-                            <input name="page" type="hidden" class="form-control" value="edit"/>
-                            <input type="submit" class="btn btn-light" value="Update">
-                        </form>
-                    </div>
-                    <div class="ml-md-3">
-                        <form action="' . CONTACT_PATH .'" method="POST" onsubmit="return confirm(\'Are you sure?\')">
-                            <input name="id" type="hidden" class="form-control" value="' . $id .'"/>
-                            <input name="action" type="hidden" class="form-control" value="delete"/>
-                            <input type="submit" class="btn btn-warning" value="Delete">
-                        </form>
-                    </div>
+                    ' . $additional_actions . '
                 </div>
             </div>
         </div>';

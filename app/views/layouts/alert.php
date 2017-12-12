@@ -11,8 +11,8 @@ function alert($has_form=false) {
     if(isset($flash) && !$has_form) {
         if(isset($flash_type)) $class = $flash_type;
 
-        @session_unset($_SESSION['flash-type']);
-        @session_unset($_SESSION['flash']);
+        unset($_SESSION['flash-type']);
+        unset($_SESSION['flash']);
         $close_js = '
             <script>
                 var btn = document.getElementById("alert-close");
