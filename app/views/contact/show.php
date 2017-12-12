@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="<?php echo STYLESHEETS_PATH . "bootstrap.min.css"; ?>">
         <link rel="stylesheet" href="<?php echo STYLESHEETS_PATH . "index.css"; ?>">
 
-        <title>Contact</title>
+        <title>Show</title>
     </head>
     <body>
         <?php echo navbar('contact'); ?>

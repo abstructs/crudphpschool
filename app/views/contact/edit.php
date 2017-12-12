@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="<?php echo STYLESHEETS_PATH . "bootstrap.min.css"; ?>">
     <link rel="stylesheet" href="<?php echo STYLESHEETS_PATH . "index.css"; ?>">
     <script src="<?php echo JAVASCRIPTS_PATH . "new.js"; ?>"></script>
-    <title>Contact</title>
+    <title>Edit</title>
 </head>
 <body>
 <?php echo navbar(); ?>
@@ -75,10 +75,11 @@
                         <br>
                         <?php
                             $user_photo = $user_data['picture'];
-                            $user_photo_path = IMAGE_PATH . urlencode($user_photo);
+                            $user_photo_path = IMAGE_PATH . $user_photo;
+                            $user_photo_url = IMAGE_PATH . urlencode($user_photo);
 
                             if(file_exists($user_photo_path) && $user_photo != "") {
-                                echo '<img style="height: 200px;" src="' . $user_photo_path . '"/>';
+                                echo '<img style="height: 200px;" src="' . $user_photo_url . '"/>';
                             }
                         ?>
                         <input value="<?php echo $user_data['picture']; ?>" id="picture" name="picture" type="file" class="form-control" placeholder="Picture"/>

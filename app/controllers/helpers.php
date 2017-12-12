@@ -210,7 +210,12 @@ function deleteContact($id) {
     $new_file = '';
     foreach(explode("\n",$file) as $row) {
         $row_data = explode(",", $row);
-        if(!isset($row[0]) || ($row_data[0] === (string)$id)) continue;
+        if(!isset($row[0])) { continue; }
+        // remove photo, the 11th element correspondes to the photo filename
+        if($row_data[0] === (string)$id) {
+            unlink(UPLOAD_PATH . $row_data[10]);
+            continue;
+        }
         $new_file = $new_file . $row . "\n";
     }
 
