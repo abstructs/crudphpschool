@@ -1,7 +1,7 @@
 <?php
 
 
-// NOTE: For any controllers that get some data, the corresponding function will return
+// NOTE: For any controller that get some data, the corresponding function will return
 //       that data. If there is no data to return the function returns false or doesn't return at all.
 //       I made this decision because I couldn't think of a way to make the data scope to the file the function
 //       is being called in. Regardless it works. Dear future self, don't hate me.
