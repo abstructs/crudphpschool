@@ -3,7 +3,7 @@
 function card($id, $title, $first_name, $last_name, $photo_url="") {
     $photo = "";
     if($photo_url != "" && file_exists(IMAGE_PATH . $photo_url)) {
-        $photo = '<img class="card-img-top" src="' . IMAGE_PATH . $photo_url . '" alt="contact photo" style="height: 200px; width: 100%;">';
+        $photo = '<img class="card-img-top" src="' . IMAGE_PATH . urlencode($photo_url) . '" alt="contact photo" style="height: 200px; width: 100%;">';
     }
     $additional_actions = "";
     if(is_logged_in()) {

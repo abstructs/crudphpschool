@@ -24,7 +24,7 @@
                 <?php
                 foreach($user_data as $key => $value) {
                     if($key == 'picture' && $value != "") {
-                        echo '<li class="list-group-item">' . $key . ': ' . '<img style="height: 200px;" src="' . IMAGE_PATH . $value . '"/>' . '</li>';
+                        echo '<li class="list-group-item">' . $key . ': ' . '<img style="height: 200px;" src="' . IMAGE_PATH . urlencode($value) . '"/>' . '</li>';
                     } else {
                         echo '<li class="list-group-item">' . $key . ': ' . $value . '</li>';
                     }

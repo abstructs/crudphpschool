@@ -75,7 +75,7 @@
                         <br>
                         <?php
                             $user_photo = $user_data['picture'];
-                            $user_photo_path = IMAGE_PATH . $user_photo;
+                            $user_photo_path = IMAGE_PATH . urlencode($user_photo);
 
                             if(file_exists($user_photo_path) && $user_photo != "") {
                                 echo '<img style="height: 200px;" src="' . $user_photo_path . '"/>';
